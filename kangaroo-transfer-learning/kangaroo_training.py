@@ -12,8 +12,10 @@ class KangarooDataset(mrcnn.utils.Dataset):
         # Adds information (image ID, image path, and annotation file path) about each image in a dictionary.
         self.add_class("dataset", 1, "kangaroo")
 
-        images_dir = dataset_dir + '/images/'
-        annotations_dir = dataset_dir + '/annots/'
+        images_dir = 'C:/Users/karim/Mask-RCNN-TF2/kangaroo-transfer-learning/kangaroo/images'
+        print(dataset_dir)
+        print(images_dir)
+        annotations_dir = 'C:/Users/karim/Mask-RCNN-TF2/kangaroo-transfer-learning/kangaroo/annots'
 
         for filename in os.listdir(images_dir):
             image_id = filename[:-4]
@@ -89,7 +91,7 @@ kangaroo_config = KangarooConfig()
 
 # Build the Mask R-CNN Model Architecture
 model = mrcnn.model.MaskRCNN(mode='training', 
-                             model_dir='./', 
+                             model_dir='C:/Users/karim/Mask-RCNN-TF2/kangaroo-transfer-learning', 
                              config=kangaroo_config)
 
 model.load_weights(filepath='mask_rcnn_coco.h5', 
